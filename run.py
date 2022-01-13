@@ -11,58 +11,60 @@ CREDS = Credentials.from_service_account_file("creds.json")
 SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open("price-calculator")
-SOCKETS = SHEET.worksheet('sockets')
-LIGHTS = SHEET.worksheet('lights')
-SWITCHES = SHEET.worksheet('switches')
 
 
+SOCKETS = SHEET.worksheet("sockets")
+LIGHTS = SHEET.worksheet("lights")
+SWITCHES = SHEET.worksheet("switches")
+SALES = SHEET.worksheet("sales")
 
-def view_stock():
+sockets_data = SOCKETS.get_all_values()
+lights_data = LIGHTS.get_all_values()
+switches_data = SWITCHES.get_all_values()
+sales_data = SALES.get_all_values()
+
+enter_input = ("Please select from the options above:")
+answer = ""
+
+
+def get_sales_data():
     """
-    A function that prints out the current stock of materials with prices
+    Get sales figures input from the user.
     """
+    print("Please enter up to date sales figures.")
+    print("Data should be 3 numbers, separated by commas.")
+    print("Example: 10,20,30\n")
 
-    print("Please select an option from the menu")
+get_sales_data()
 
-    stock_str = input('Enter your choice here:')
-    sockets_stock = stock_str.split(',')
-   
-    def main():
-        """
-        Start menu that the user can choose between 4 different tasks.
-        """
-    print("""   --------MENU--------
-                1.View Stock List w/Prices\n\
-                2.Add Sales Data\n\
-                3.Add Stock Delivery\n\
-                4.Do Stock Take\n\
-                    """)
-
-    def view_stock():
-      """
-    Function to get all values from google sheet
-    and show them as a list for each type.
-     """
-
-    view_stocks = SOCKETS.get_all_values()
-    if view_stock:
-        for socket in view_stocks:
-            printing_all_values(socket)
-    else:
-        print("Stock is empty!")
-    back_to_menu()
-
-view_stock()    
-
-def printing_all_values(sockets):
+def update_sales():
+    """ Function to update sales sheet within google spreadsheet
     """
-    Function that takes all the existing values from worksheet
-    and make it a loop with the materials type and prices
-    """
-    one_value = []
-    for type, price in sockets.items():
-        print(f'{type}: {price}')
-    print("-----------------------------------")
-    return one_value
+    print("Updating worksheet...\n")
+    sales_worksheet = SHEET.worksheet(sales)
+    sales_worksheet.append_row(data)
+    print("Sales worksheet updated successfully!")
+def main_menu():
 
+    while True:
+        sockets_data
+        lights_data
+        switches_data
+        print("""---MENU---
+        1.View Stock and Price
+        2.Add Sales Data
+        3.Add Stock Delivery
+        4.Do Stock Take
+        """)
+        answer = input(enter_input)
+        if answer == "1":
+            print(sockets_data)
+            print(lights_data)
+            print(switches_data)
+        elif answer == "2":
+           update_sales()
+        elif answer == "3":
 
+            break
+
+main_menu()
