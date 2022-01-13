@@ -34,16 +34,21 @@ def get_sales_data():
     print("Please enter up to date sales figures.")
     print("Data should be 3 numbers, separated by commas.")
     print("Example: 10,20,30\n")
+    print(input("Please insert sales values:"))
 
-get_sales_data()
+#get_sales_data()
 
-def update_sales():
+#def update_sales():
     """ Function to update sales sheet within google spreadsheet
     """
+    get_sales_data()
     print("Updating worksheet...\n")
     sales_worksheet = SHEET.worksheet(sales)
     sales_worksheet.append_row(data)
     print("Sales worksheet updated successfully!")
+
+    #update_sales()
+
 def main_menu():
 
     while True:
@@ -58,13 +63,16 @@ def main_menu():
         """)
         answer = input(enter_input)
         if answer == "1":
-            print(sockets_data)
-            print(lights_data)
-            print(switches_data)
+            print(sockets_data,lights_data,switches_data)
+            break
         elif answer == "2":
            update_sales()
         elif answer == "3":
-
+            stock_data = ([item[2:] for item in sockets_data] + [[item[2:] for item in lights_data]])
+            input_data = []
+            input_data = print("Please input what stock has been delivered")
+            print(f'{stock_data} - {input_data}')
             break
 
 main_menu()
+
