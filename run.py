@@ -36,23 +36,29 @@ def start():
         answer = input("Choose an option: \n")
         if answer == '1':
             print("Taking you to View sockets stock and price...\n")
-            sockets_stock_price = SOCKETS.get_all_records()
+            socket_type = SOCKETS.col_values(1)
+            socket_stock = SOCKETS.col_values(5)
+            print(f'{socket_type}:{socket_stock}')
             break
         elif answer == '2':
             print("Taking you to View lights stock and price......\n")
-            show_all_contacts()
+            lights_type = LIGHTS.col_values(1)
+            lights_stock = LIGHTS.col_values(4)
+            print(f'{lights_type}:{lights_stock}')
             break
         elif answer == '3':
             print("Taking you to View switches stock and price......\n")
-            search_contact()
+            switches_type = SWITCHES.col_values(1)
+            switches_stock = SWITCHES.col_values(4)
+            print(f'{switches_type}:{switches_stock}')
             break
         elif answer == '4':
             print("Taking you to Update stock...\n")
-            search_contact()
+           
             break
         elif answer == '5':
             print("Taking you to Get quote...\n")
-            validate_reset()
+            
             break
         elif answer == '6':
             print("Exiting...")
@@ -60,4 +66,15 @@ def start():
             break
         else:
             print("Not a valid input please enter a number 1-6")
+            
+start()
 
+def exit_programme():
+    """
+    Shutting down program when user chose the exit task in menu
+    """
+    print("-------------------------------------------------------")
+    print("---------------Thank you for using this----------------")
+    print("------------------------APP!---------------------------")
+    print("------------------------GOODBYE------------------------")
+    print("-------------------------------------------------------")
