@@ -43,8 +43,8 @@ def get_sales_data():
     Get sales figures input from the user.
     """
     while True:
-        print("Please enter sales data from the last market.")
-        print("Data should be three numbers, separated by commas.")
+        print("Please enter most current sales data.")
+        print("Data should be three numbers, separated by commas an representing sockets, lights, switches.")
         print("Example: 10,20,30\n")
 
         data_str = input("Enter your data here: ")
@@ -89,7 +89,9 @@ def validate_data(values):
 
 def get_quote():
     """
-    Get quote information from user
+    Get quote information from user based on type of material
+    Once the required numbers are typed in the program will return
+    the calculated quote based on type and prices of materials
     """
     print("""
         1.Sockets
@@ -103,29 +105,35 @@ def get_quote():
         B.Standard Switched
         C.Standard Unswitched
         """)
-        socket_type = input("Please select the type of socket required\n:")
+        socket_type = input("Please select the type of sockets required\n:")
         
         if socket_type == "A" or socket_type == "a":
             sockets_price = SOCKETS.cell(2, 2).value
+            
             sockets_price = int(float(sockets_price))
             sockets_quote = int(input("Please type in the amount of sockets\n:"))
             calculated_quote = sockets_quote * sockets_price
             total_amount = calculated_quote + ((calculated_quote*0.20))
             print(f'The sockets you require are {sockets_quote} and the total amount is:{total_amount}')
         elif socket_type == "B" or socket_type == "b":
-            sockets_price = SOCKETS.cell(2, 3).value
+            sockets_price = SOCKETS.cell(3, 2).value
+            
             sockets_price = int(float(sockets_price))
             sockets_quote = int(input("Please type in the amount of sockets\n:"))
             calculated_quote = sockets_quote * sockets_price
             total_amount = calculated_quote + ((calculated_quote*0.20))
             print(f'The sockets you require are {sockets_quote} and the total amount is:{total_amount}')
         elif socket_type == "C" or socket_type == "c":
-            sockets_price = SOCKETS.cell(2, 4).value
+            sockets_price = SOCKETS.cell(4, 2).value
+            
             sockets_price = int(float(sockets_price))
             sockets_quote = int(input("Please type in the amount of sockets\n:"))
             calculated_quote = sockets_quote * sockets_price
             total_amount = calculated_quote + ((calculated_quote*0.20))
             print(f'The sockets you require are {sockets_quote} and the total amount is:{total_amount}')
+        else:
+            print("Please only use the required values for selection!\n")
+            back_to_menu()
     elif quote_answer == "2":
         print("""
         A. Led batten
@@ -136,33 +144,40 @@ def get_quote():
 
         lights_type = input("Please select the type of lights required\n:")
         if lights_type == "A" or lights_type == "a":
-            lights_price = LIGHTS.cell(2, 2).value
+            lights_price = LIGHTS.cell(2, 3).value
+            
             lights_price = int(float(lights_price))
             lights_quote = int(input("Please type in the amount of lights\n:"))
             calculated_lights_quote = lights_quote * lights_price
             total_amount = calculated_lights_quote + ((calculated_lights_quote*0.20))
             print(f'The lights you require are {lights_quote} and the total amount is:{total_amount}')
         elif lights_type == "B" or lights_type == "b":
-            lights_price = LIGHTS.cell(2, 3).value
+            lights_price = LIGHTS.cell(3, 3).value
+            
             lights_price = int(float(lights_price))
-            lights_quote = int(input("Please type in the amount of sockets\n:"))
+            lights_quote = int(input("Please type in the amount of lights\n:"))
             calculated_lights_quote = lights_quote * lights_price
             total_amount = calculated_lights_quote + ((calculated_lights_quote*0.20))
             print(f'The lights you require are {lights_quote} and the total amount is:{total_amount}')
         elif lights_type == "C" or lights_type == "c":
-            lights_price = LIGHTS.cell(2, 4).value
+            lights_price = LIGHTS.cell(4, 3).value
+           
             lights_price = int(float(lights_price))
             lights_quote = int(input("Please type in the amount of lights\n:"))
             calculated_lights_quote = lights_quote * lights_price
             total_amount = calculated_lights_quote + ((calculated_lights_quote*0.20))
             print(f'The lights you require are {lights_quote} and the total amount is:{total_amount}')
         elif lights_type == "D" or lights_type == "d":
-            lights_price = LIGHTS.cell(2, 5).value
+            lights_price = LIGHTS.cell(5, 3).value
+           
             lights_price = int(float(lights_price))
             lights_quote = int(input("Please type in the amount of lights\n:"))
             calculated_lights_quote = lights_quote * lights_price
-            total_amount = calculated__lights_quote + ((calculated_lights_quote*0.20))
-            print(f'The lights you require are {lights_quote} and the total amount is:{total_amount}')                
+            total_amount = calculated_lights_quote + ((calculated_lights_quote*0.20))
+            print(f'The lights you require are {lights_quote} and the total amount is:{total_amount}')
+        else:
+            print("Please only use the required values for selection!\n")
+            back_to_menu()                
     elif quote_answer == "3":
         print("""
         A. Standard
@@ -171,36 +186,38 @@ def get_quote():
         D. Intermediate
         """)
 
-        switches_type = input("Please select the type of switch required\n:")
+        switches_type = input("Please select the type of switches required\n:")
         if switches_type == "A" or switches_type == "a":
-            switches_price = SWITCHES.cell(3, 2).value
-            switches_price = int(float(switches_price))
-            switches_quote = int(input("Please type in the amount of switches\n:"))
+            switches_price = SWITCHES.cell(2, 3).value            
+            switches_price = float(switches_price)
+            switches_quote = round(float(input("Please type in the amount of switches\n:")))
             calculated_switches_quote = switches_quote * switches_price
             total_amount = calculated_switches_quote + ((calculated_switches_quote*0.20))
             print(f'The switches you require are {switches_quote} and the total amount is:{total_amount}')
         elif switches_type == "B" or switches_type == "b":
             switches_price = SWITCHES.cell(3, 3).value
-            switches_price = int(float(switches_price))
+            switches_price = float(switches_price)
             switches_quote = int(input("Please type in the amount of switches\n:"))
             calculated_switches_quote = switches_quote * switches_price
             total_amount = calculated_switches_quote + ((calculated_switches_quote*0.20))
             print(f'The switches you require are {switches_quote} and the total amount is:{total_amount}')
         elif switches_type == "C" or switches_type == "c":
-            switches_price = SWITCHES.cell(3, 4).value
+            switches_price = SWITCHES.cell(4, 3).value
             switches_price = int(float(switches_price))
             switches_quote = int(input("Please type in the amount of switches\n:"))
             calculated_switches_quote = switches_quote * switches_price
             total_amount = calculated_switches_quote + ((calculated_switches_quote*0.20))
             print(f'The switches you require are {switches_quote} and the total amount is:{total_amount}')
         elif switches_type == "D" or switches_type == "d":
-            switches_price = SWITCHES.cell(3, 5).value
+            switches_price = SWITCHES.cell(5, 3).value
             switches_price = int(float(switches_price))
             switches_quote = int(input("Please type in the amount of switches\n:"))
             calculated_switches_quote = switches_quote * switches_price
             total_amount = calculated_switches_quote + ((calculated_switches_quote*0.20))
             print(f'The switches you require are {switches_quote} and the total amount is:{total_amount}')  
-       
+        else:
+            print("Please only use the required values for selection!\n")
+            back_to_menu()
 def exit_programme():
     """
     Shutting down program when user chose the exit task in menu
@@ -256,11 +273,12 @@ def start():
                     """)
     while True:
         answer = input("Choose an option: \n")
+        
         if answer == '1':
             print("Taking you to View sockets stock and price...\n")
             print("ALL PRICES ARE FOR SINGLE PARTS\n")
             socket_type = SOCKETS.col_values(1)
-            socket_stock = SOCKETS.col_values(5)
+            socket_stock = SOCKETS.col_values(4)
             socket_price = SOCKETS.col_values(2)
             socket_size = SOCKETS.col_values(3)
             print(f'{socket_type}\n:{socket_size}\n:{socket_price}\n:{socket_stock}')
@@ -302,6 +320,7 @@ def start():
             break
         else:
             print("Not a valid input please enter a number 1-6")
+            back_to_menu()
 
 def main():
     """
