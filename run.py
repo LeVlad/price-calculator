@@ -134,33 +134,33 @@ def get_quote():
         D. Led square bulkhead
         """)
 
-        lights_type = input("Please select the type of socket required\n:")
+        lights_type = input("Please select the type of lights required\n:")
         if lights_type == "A" or lights_type == "a":
             lights_price = LIGHTS.cell(2, 2).value
             lights_price = int(float(lights_price))
-            lights_quote = int(input("Please type in the amount of sockets\n:"))
-            calculated__lights_quote = lights_quote * lights_price
-            total_amount = calculated__lights_quote + ((calculated_lights_quote*0.20))
+            lights_quote = int(input("Please type in the amount of lights\n:"))
+            calculated_lights_quote = lights_quote * lights_price
+            total_amount = calculated_lights_quote + ((calculated_lights_quote*0.20))
             print(f'The lights you require are {lights_quote} and the total amount is:{total_amount}')
         elif lights_type == "B" or lights_type == "b":
             lights_price = LIGHTS.cell(2, 3).value
             lights_price = int(float(lights_price))
             lights_quote = int(input("Please type in the amount of sockets\n:"))
-            calculated__lights_quote = lights_quote * lights_price
-            total_amount = calculated__lights_quote + ((calculated_lights_quote*0.20))
+            calculated_lights_quote = lights_quote * lights_price
+            total_amount = calculated_lights_quote + ((calculated_lights_quote*0.20))
             print(f'The lights you require are {lights_quote} and the total amount is:{total_amount}')
         elif lights_type == "C" or lights_type == "c":
             lights_price = LIGHTS.cell(2, 4).value
             lights_price = int(float(lights_price))
             lights_quote = int(input("Please type in the amount of lights\n:"))
-            calculated__lights_quote = lights_quote * lights_price
-            total_amount = calculated__lights_quote + ((calculated_lights_quote*0.20))
+            calculated_lights_quote = lights_quote * lights_price
+            total_amount = calculated_lights_quote + ((calculated_lights_quote*0.20))
             print(f'The lights you require are {lights_quote} and the total amount is:{total_amount}')
         elif lights_type == "D" or lights_type == "d":
             lights_price = LIGHTS.cell(2, 5).value
             lights_price = int(float(lights_price))
             lights_quote = int(input("Please type in the amount of lights\n:"))
-            calculated__lights_quote = lights_quote * lights_price
+            calculated_lights_quote = lights_quote * lights_price
             total_amount = calculated__lights_quote + ((calculated_lights_quote*0.20))
             print(f'The lights you require are {lights_quote} and the total amount is:{total_amount}')                
     elif quote_answer == "3":
@@ -171,33 +171,33 @@ def get_quote():
         D. Intermediate
         """)
 
-        switch_type = input("Please select the type of switch required\n:")
-        if switches_type == "A" or socket_type == "a":
+        switches_type = input("Please select the type of switch required\n:")
+        if switches_type == "A" or switches_type == "a":
             switches_price = SWITCHES.cell(3, 2).value
             switches_price = int(float(switches_price))
             switches_quote = int(input("Please type in the amount of switches\n:"))
-            calculated__switches_quote = switches_quote * switches_price
+            calculated_switches_quote = switches_quote * switches_price
             total_amount = calculated_switches_quote + ((calculated_switches_quote*0.20))
             print(f'The switches you require are {switches_quote} and the total amount is:{total_amount}')
         elif switches_type == "B" or switches_type == "b":
             switches_price = SWITCHES.cell(3, 3).value
             switches_price = int(float(switches_price))
             switches_quote = int(input("Please type in the amount of switches\n:"))
-            calculated__switches_quote = switches_quote * switches_price
+            calculated_switches_quote = switches_quote * switches_price
             total_amount = calculated_switches_quote + ((calculated_switches_quote*0.20))
             print(f'The switches you require are {switches_quote} and the total amount is:{total_amount}')
         elif switches_type == "C" or switches_type == "c":
             switches_price = SWITCHES.cell(3, 4).value
             switches_price = int(float(switches_price))
             switches_quote = int(input("Please type in the amount of switches\n:"))
-            calculated__switches_quote = switches_quote * switches_price
+            calculated_switches_quote = switches_quote * switches_price
             total_amount = calculated_switches_quote + ((calculated_switches_quote*0.20))
             print(f'The switches you require are {switches_quote} and the total amount is:{total_amount}')
         elif switches_type == "D" or switches_type == "d":
             switches_price = SWITCHES.cell(3, 5).value
             switches_price = int(float(switches_price))
             switches_quote = int(input("Please type in the amount of switches\n:"))
-            calculated__switches_quote = switches_quote * switches_price
+            calculated_switches_quote = switches_quote * switches_price
             total_amount = calculated_switches_quote + ((calculated_switches_quote*0.20))
             print(f'The switches you require are {switches_quote} and the total amount is:{total_amount}')  
        
