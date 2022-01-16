@@ -36,17 +36,20 @@ def get_sales_data():
         
         if validate_data(sales_data):
             print("Data is valid!")
+            update_worksheet(sales_data, "sales")
+            back_to_menu()
         break
+        
     
 
-def update_worksheet(data, worksheet):
+def update_worksheet(sales_data, worksheet):
     """
     Receives a list of integers to be inserted into a worksheet
     Update the relevant worksheet with the data provided
     """
     print(f"Updating {worksheet} worksheet...\n")
-    worksheet_to_update = SHEET.worksheet(worksheet)
-    worksheet_to_update.append_row(data)
+    worksheet_to_update = SHEET.worksheet("sales")
+    worksheet_to_update.append_row(sales_data)
     print(f"{worksheet} worksheet updated successfully\n")
 
         
@@ -66,7 +69,25 @@ def validate_data(values):
         print(f"Invalid data: {e}, please try again.\n")
         return False
     return True
-get_sales_data()
+
+def back_to_menu():
+    """
+    A return to the main menu option that the user can use
+    """
+    while True:
+        user_selection = input("Back to menu: B, Exit: E \n")
+        if user_selection == "B" or user_selection == "b":
+            start()
+            break
+        elif user_selection == "E" or user_selection == "e":
+            exit_programme()
+            break
+        else:
+            print("Invalid input, Try again")
+            back_to_menu()
+            break
+        return False    
+
 
 def exit_programme():
     """
@@ -101,6 +122,7 @@ def start():
             socket_price = SOCKETS.col_values(2)
             socket_size = SOCKETS.col_values(3)
             print(f'{socket_type}\n:{socket_size}\n:{socket_price}\n:{socket_stock}')
+            back_to_menu()
             break
         elif answer == '2':
             print("Taking you to View lights stock and price......\n")
@@ -110,6 +132,7 @@ def start():
             lights_price = LIGHTS.col_values(3)
             lights_stock = LIGHTS.col_values(4)
             print(f'{lights_type}\n:{lights_wattage}\n:{lights_price}\n:{lights_stock}')
+            back_to_menu()
             break
         elif answer == '3':
             print("Taking you to View switches stock and price......\n")
@@ -118,15 +141,17 @@ def start():
             switches_price = SWITCHES.col_values(3)
             switches_stock = SWITCHES.col_values(4)
             print(f'{switches_type}\n:{switches_price}\n:{switches_stock}')
+            back_to_menu()
             break
         elif answer == '4':
             print("Taking you to Update sales...\n")
             get_sales_data()
-            validate_data()
-            update_worksheet()
+            break
+            back_to_menu()    
             break
         elif answer == '5':
             print("Taking you to Get quote...\n")
+            back_to_menu()
             
             break
         elif answer == '6':
@@ -141,12 +166,8 @@ def main():
     Function that runs all functions
     """
     start()
-    data = get_sales_data()
-    sales_data = [int(num) for num in data]
-    update_worksheet(sales_data, "sales")
-    
-    
-    
+   
+
 main()
 
 
