@@ -20,6 +20,23 @@ SWITCHES = SHEET.worksheet("switches")
 SALES = SHEET.worksheet("sales")
 
 
+def back_to_menu():
+    """
+    A return to the main menu option that the user can use
+    """
+    while True:
+        user_selection = input("Back to menu: B, Exit: E \n")
+        if user_selection == "B" or user_selection == "b":
+            start()
+            break
+        elif user_selection == "E" or user_selection == "e":
+            exit_programme()
+            break
+        else:
+            print("Invalid input, Try again")
+            back_to_menu()
+            break
+        return False    
 
 def get_sales_data():
     """
@@ -39,8 +56,7 @@ def get_sales_data():
             update_worksheet(sales_data, "sales")
             back_to_menu()
         break
-        
-    
+
 
 def update_worksheet(sales_data, worksheet):
     """
@@ -68,27 +84,123 @@ def validate_data(values):
     except ValueError as e:
         print(f"Invalid data: {e}, please try again.\n")
         return False
+
     return True
 
-def back_to_menu():
+def get_quote():
     """
-    A return to the main menu option that the user can use
+    Get quote information from user
     """
-    while True:
-        user_selection = input("Back to menu: B, Exit: E \n")
-        if user_selection == "B" or user_selection == "b":
-            start()
-            break
-        elif user_selection == "E" or user_selection == "e":
-            exit_programme()
-            break
-        else:
-            print("Invalid input, Try again")
-            back_to_menu()
-            break
-        return False    
+    print("""
+        1.Sockets
+        2.Lights
+        3.Switches
+        """)
+    quote_answer = input("Please select which material you require a quote for:\n")
+    if quote_answer == "1":
+        print("""
+        A.RCD
+        B.Standard Switched
+        C.Standard Unswitched
+        """)
+        socket_type = input("Please select the type of socket required\n:")
+        
+        if socket_type == "A" or socket_type == "a":
+            sockets_price = SOCKETS.cell(2, 2).value
+            sockets_price = int(float(sockets_price))
+            sockets_quote = int(input("Please type in the amount of sockets\n:"))
+            calculated_quote = sockets_quote * sockets_price
+            total_amount = calculated_quote + ((calculated_quote*0.20))
+            print(f'The sockets you require are {sockets_quote} and the total amount is:{total_amount}')
+        elif socket_type == "B" or socket_type == "b":
+            sockets_price = SOCKETS.cell(2, 3).value
+            sockets_price = int(float(sockets_price))
+            sockets_quote = int(input("Please type in the amount of sockets\n:"))
+            calculated_quote = sockets_quote * sockets_price
+            total_amount = calculated_quote + ((calculated_quote*0.20))
+            print(f'The sockets you require are {sockets_quote} and the total amount is:{total_amount}')
+        elif socket_type == "C" or socket_type == "c":
+            sockets_price = SOCKETS.cell(2, 4).value
+            sockets_price = int(float(sockets_price))
+            sockets_quote = int(input("Please type in the amount of sockets\n:"))
+            calculated_quote = sockets_quote * sockets_price
+            total_amount = calculated_quote + ((calculated_quote*0.20))
+            print(f'The sockets you require are {sockets_quote} and the total amount is:{total_amount}')
+    elif quote_answer == "2":
+        print("""
+        A. Led batten
+        B. Led ES bulb
+        C. Led round bulkhead
+        D. Led square bulkhead
+        """)
 
+        lights_type = input("Please select the type of socket required\n:")
+        if lights_type == "A" or lights_type == "a":
+            lights_price = LIGHTS.cell(2, 2).value
+            lights_price = int(float(lights_price))
+            lights_quote = int(input("Please type in the amount of sockets\n:"))
+            calculated__lights_quote = lights_quote * lights_price
+            total_amount = calculated__lights_quote + ((calculated_lights_quote*0.20))
+            print(f'The lights you require are {lights_quote} and the total amount is:{total_amount}')
+        elif lights_type == "B" or lights_type == "b":
+            lights_price = LIGHTS.cell(2, 3).value
+            lights_price = int(float(lights_price))
+            lights_quote = int(input("Please type in the amount of sockets\n:"))
+            calculated__lights_quote = lights_quote * lights_price
+            total_amount = calculated__lights_quote + ((calculated_lights_quote*0.20))
+            print(f'The lights you require are {lights_quote} and the total amount is:{total_amount}')
+        elif lights_type == "C" or lights_type == "c":
+            lights_price = LIGHTS.cell(2, 4).value
+            lights_price = int(float(lights_price))
+            lights_quote = int(input("Please type in the amount of lights\n:"))
+            calculated__lights_quote = lights_quote * lights_price
+            total_amount = calculated__lights_quote + ((calculated_lights_quote*0.20))
+            print(f'The lights you require are {lights_quote} and the total amount is:{total_amount}')
+        elif lights_type == "D" or lights_type == "d":
+            lights_price = LIGHTS.cell(2, 5).value
+            lights_price = int(float(lights_price))
+            lights_quote = int(input("Please type in the amount of lights\n:"))
+            calculated__lights_quote = lights_quote * lights_price
+            total_amount = calculated__lights_quote + ((calculated_lights_quote*0.20))
+            print(f'The lights you require are {lights_quote} and the total amount is:{total_amount}')                
+    elif quote_answer == "3":
+        print("""
+        A. Standard
+        B. Dimmer
+        C. Two way switch
+        D. Intermediate
+        """)
 
+        switch_type = input("Please select the type of switch required\n:")
+        if switches_type == "A" or socket_type == "a":
+            switches_price = SWITCHES.cell(3, 2).value
+            switches_price = int(float(switches_price))
+            switches_quote = int(input("Please type in the amount of switches\n:"))
+            calculated__switches_quote = switches_quote * switches_price
+            total_amount = calculated_switches_quote + ((calculated_switches_quote*0.20))
+            print(f'The switches you require are {switches_quote} and the total amount is:{total_amount}')
+        elif switches_type == "B" or switches_type == "b":
+            switches_price = SWITCHES.cell(3, 3).value
+            switches_price = int(float(switches_price))
+            switches_quote = int(input("Please type in the amount of switches\n:"))
+            calculated__switches_quote = switches_quote * switches_price
+            total_amount = calculated_switches_quote + ((calculated_switches_quote*0.20))
+            print(f'The switches you require are {switches_quote} and the total amount is:{total_amount}')
+        elif switches_type == "C" or switches_type == "c":
+            switches_price = SWITCHES.cell(3, 4).value
+            switches_price = int(float(switches_price))
+            switches_quote = int(input("Please type in the amount of switches\n:"))
+            calculated__switches_quote = switches_quote * switches_price
+            total_amount = calculated_switches_quote + ((calculated_switches_quote*0.20))
+            print(f'The switches you require are {switches_quote} and the total amount is:{total_amount}')
+        elif switches_type == "D" or switches_type == "d":
+            switches_price = SWITCHES.cell(3, 5).value
+            switches_price = int(float(switches_price))
+            switches_quote = int(input("Please type in the amount of switches\n:"))
+            calculated__switches_quote = switches_quote * switches_price
+            total_amount = calculated_switches_quote + ((calculated_switches_quote*0.20))
+            print(f'The switches you require are {switches_quote} and the total amount is:{total_amount}')  
+       
 def exit_programme():
     """
     Shutting down program when user chose the exit task in menu
@@ -146,11 +258,11 @@ def start():
         elif answer == '4':
             print("Taking you to Update sales...\n")
             get_sales_data()
-            break
             back_to_menu()    
             break
         elif answer == '5':
             print("Taking you to Get quote...\n")
+            get_quote()
             back_to_menu()
             
             break
@@ -166,10 +278,5 @@ def main():
     Function that runs all functions
     """
     start()
-   
 
 main()
-
-
-
-
