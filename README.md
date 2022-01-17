@@ -64,7 +64,7 @@ When that is done correctly this will provide me the live link for this programe
 Then I choose Automatic Deploys button that will automatically rebuild the app everytime you add, commit and push from GitPod.
 
 # Here is the final deployed link: #
-![image](https://user-images.githubusercontent.com/88729876/149689741-e56bba00-c5c5-4e06-b6df-26739a7ae0ab.png)
+https://price-calculator1388.herokuapp.com/
 
 
 # 6. Resources #
