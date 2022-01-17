@@ -36,7 +36,8 @@ def back_to_menu():
             print("Invalid input, Try again")
             back_to_menu()
             break
-        return False    
+        return False
+
 
 def get_sales_data():
     """
@@ -59,6 +60,7 @@ def get_sales_data():
             back_to_menu()
         break
 
+
 def update_worksheet(sales_data, worksheet):
     """
     Receives a list of integers to be inserted into a worksheet
@@ -68,6 +70,7 @@ def update_worksheet(sales_data, worksheet):
     worksheet_to_update = SHEET.worksheet("sales")
     worksheet_to_update.append_row(sales_data)
     print(f"{worksheet} worksheet updated successfully\n")
+
 
 def validate_data(values):
     """
@@ -87,6 +90,7 @@ def validate_data(values):
 
     return True
 
+
 def get_quote():
     """
     Get quote information from user based on type of material
@@ -105,28 +109,28 @@ def get_quote():
         B.Standard Switched
         C.Standard Unswitched
         """)
-        socket_type = input("Please select socket type\n:")       
+        socket_type = input("Please select socket type\n:")
         if socket_type == "A" or socket_type == "a":
-            sockets_price = SOCKETS.cell(2, 2).value            
+            sockets_price = SOCKETS.cell(2, 2).value
             sockets_price = int(float(sockets_price))
             sockets_quote = int(input("Please type in socket quantity\n:"))
             calculated_quote = sockets_quote * sockets_price
             total_amount = calculated_quote + ((calculated_quote*0.20))
-            print(f'Amount required:{sockets_quote} and total is:{total_amount}')
+            print(f'Amount required:{sockets_quote} & total is:{total_amount}')
         elif socket_type == "B" or socket_type == "b":
             sockets_price = SOCKETS.cell(3, 2).value
             sockets_price = int(float(sockets_price))
             sockets_quote = int(input("Please type in socket quantity\n:"))
             calculated_quote = sockets_quote * sockets_price
             total_amount = calculated_quote + ((calculated_quote*0.20))
-            print(f'Amount required:{sockets_quote} and total is:{total_amount}')
+            print(f'Amount required:{sockets_quote} & total is:{total_amount}')
         elif socket_type == "C" or socket_type == "c":
             sockets_price = SOCKETS.cell(4, 2).value
             sockets_price = int(float(sockets_price))
             sockets_quote = int(input("Please type in socket quantity\n:"))
             calculated_quote = sockets_quote * sockets_price
             total_amount = calculated_quote + ((calculated_quote*0.20))
-            print(f'Amount required:{sockets_quote} and total is:{total_amount}')
+            print(f'Amount required:{sockets_quote} & total is:{total_amount}')
         else:
             print("Please only use the required values for selection!\n")
             back_to_menu()
@@ -166,7 +170,7 @@ def get_quote():
             lights_quote = int(input("Please type in the amount of lights\n:"))
             calc_lights_quote = lights_quote * lights_price
             total_amount = calc_lights_quote + ((calc_lights_quote*0.20))
-            print(f'The lights you require are {lights_quote} and the total amount is:{total_amount}')
+            print(f'Amount required: {lights_quote} and total:{total_amount}')
         else:
             print("Please only use the required values for selection!\n")
             back_to_menu()
@@ -178,80 +182,63 @@ def get_quote():
         D. Intermediate
         """)
 
-        switches_type = input("Please select the type of switches required\n:")
-        if switches_type == "A" or switches_type == "a":
-            switches_price = SWITCHES.cell(2, 3).values
-            switches_price = float(switches_price)
-            switches_quote = round(float(input("Type in required switches quantity\n:")))
-            calc_switches_quote = switches_quote * switches_price
-            total_amount = calc_switches_quote + ((calc_switches_quote*0.20))
-            print(f'Required switches: {switches_quote} & total:{total_amount}')
-        elif switches_type == "B" or switches_type == "b":
-            switches_price = SWITCHES.cell(3, 3).value
-            switches_price = float(switches_price)
-            switches_quote = int(input("Please type in the amount of switches\n:"))
-            calc_switches_quote = switches_quote * switches_price
-            total_amount = calc_switches_quote + ((calc_switches_quote*0.20))
-            print(f'Required switches: {switches_quote} & total:{total_amount}')
-        elif switches_type == "C" or switches_type == "c":
-            switches_price = SWITCHES.cell(4, 3).value
-            switches_price = int(float(switches_price))
-            switches_quote = int(input("Please type in the amount of switches\n:"))
-            calc_switches_quote = switches_quote * switches_price
-            total_amount = calc_switches_quote + ((calc_switches_quote*0.20))
-            print(f'Required switches: {switches_quote} & total:{total_amount}')
-        elif switches_type == "D" or switches_type == "d":
-            switches_price = SWITCHES.cell(5, 3).value
-            switches_price = int(float(switches_price))
-            switches_quote = int(input("Please type in the amount of switches\n:"))
-            calc_switches_quote = switches_quote * switches_price
-            total_amount = calc_switches_quote + ((calc_switches_quote*0.20))
-            print(f'Required switches: {switches_quote} & total:{total_amount}')
+        switch_type = input("Please select the type of switches required\n:")
+        if switch_type == "A" or switch_type == "a":
+            switch_price = SWITCHES.cell(2, 3).value
+            switch_price = float(switch_price)
+            switch_quote = round(float(input("Type in required quantity\n:")))
+            calc_switch_quote = switch_quote * switch_price
+            total_amount = calc_switch_quote + ((calc_switch_quote*0.20))
+            print(f'Required switches: {switch_quote} & total:{total_amount}')
+        elif switch_type == "B" or switch_type == "b":
+            switch_price = SWITCHES.cell(3, 3).value
+            switch_price = float(switch_price)
+            switch_quote = int(input("Please type in required quantity\n:"))
+            calc_switch_quote = switch_quote * switch_price
+            total_amount = calc_switch_quote + ((calc_switch_quote*0.20))
+            print(f'Required switches: {switch_quote} & total:{total_amount}')
+        elif switch_type == "C" or switch_type == "c":
+            switch_price = SWITCHES.cell(4, 3).value
+            switch_price = int(float(switch_price))
+            switch_quote = int(input("Please type in required quantity\n:"))
+            calc_switch_quote = switch_quote * switch_price
+            total_amount = calc_switch_quote + ((calc_switch_quote*0.20))
+            print(f'Required switches: {switch_quote} & total:{total_amount}')
+        elif switch_type == "D" or switch_type == "d":
+            switch_price = SWITCHES.cell(5, 3).value
+            switch_price = int(float(switch_price))
+            switch_quote = int(input("Please type in required quantity\n:"))
+            calc_switch_quote = switch_quote * switch_price
+            total_amount = calc_switch_quote + ((calc_switch_quote*0.20))
+            print(f'Required switches: {switch_quote} & total:{total_amount}')
         else:
             print("Please only use the required values for selection!\n")
             back_to_menu()
+
+
 def exit_programme():
     """
     Shutting down program when user chose the exit task in menu
     """
     print("""
+//  ╦ ╦╔═╗╦  ╦╔═╗  ╔═╗  ╔═╗╔═╗╔═╗╔╦╗  ╔╦╗╔═╗╦ ╦  ┬
+//  ╠═╣╠═╣╚╗╔╝║╣   ╠═╣  ║ ╦║ ║║ ║ ║║   ║║╠═╣╚╦╝  │
+//  ╩ ╩╩ ╩ ╚╝ ╚═╝  ╩ ╩  ╚═╝╚═╝╚═╝═╩╝  ═╩╝╩ ╩ ╩   o
+                                             """)
 
-,--------.,--.                     ,--.                                    ,---.                                 ,--.                     ,--.  ,--.     ,--.                                                                     
-'--.  .--'|  ,---.  ,--,--.,--,--, |  |,-.     ,--. ,--.,---. ,--.,--.    /  .-' ,---. ,--.--.    ,--.,--. ,---. `--',--,--,  ,---.     ,-'  '-.|  ,---. `--' ,---.      ,---. ,--.--. ,---.  ,---. ,--.--. ,--,--.,--,--,--.     
-   |  |   |  .-.  |' ,-.  ||      \|     /      \  '  /| .-. ||  ||  |    |  `-,| .-. ||  .--'    |  ||  |(  .-' ,--.|      \| .-. |    '-.  .-'|  .-.  |,--.(  .-'     | .-. ||  .--'| .-. || .-. ||  .--'' ,-.  ||        |     
-   |  |   |  | |  |\ '-'  ||  ||  ||  \  \       \   ' ' '-' ''  ''  '    |  .-'' '-' '|  |       '  ''  '.-'  `)|  ||  ||  |' '-' '      |  |  |  | |  ||  |.-'  `)    | '-' '|  |   ' '-' '' '-' '|  |   \ '-'  ||  |  |  |.--. 
-   `--'   `--' `--' `--`--'`--''--'`--'`--'    .-'  /   `---'  `----'     `--'   `---' `--'        `----' `----' `--'`--''--'.`-  /       `--'  `--' `--'`--'`----'     |  |-' `--'    `---' .`-  / `--'    `--`--'`--`--`--''--' 
-                                               `---'                                                      ,---.              `---'                                      `--'                 `---'                                
-,--.  ,--.                                                                ,--.       ,--.                 |   |                                                                                                                   
-|  '--'  | ,--,--.,--.  ,--.,---.      ,--,--.     ,---.  ,---.  ,---.  ,-|  |     ,-|  | ,--,--.,--. ,--.|  .'                                                                                                                   
-|  .--.  |' ,-.  | \  `'  /| .-. :    ' ,-.  |    | .-. || .-. || .-. |' .-. |    ' .-. |' ,-.  | \  '  / |  |                                                                                                                    
-|  |  |  |\ '-'  |  \    / \   --.    \ '-'  |    ' '-' '' '-' '' '-' '\ `-' |    \ `-' |\ '-'  |  \   '  `--'                                                                                                                    
-`--'  `--' `--`--'   `--'   `----'     `--`--'    .`-  /  `---'  `---'  `---'      `---'  `--`--'.-'  /   .--.                                                                                                                    
-                                                  `---'                                          `---'    '--'                                                                                                                    
-""")
 
 def start():
     """
     Start menu that the user can choose between 6 different tasks.
     """
     print("""
-          _______  _        _______  _______  _______  _______   _________ _______                                                       
-|\     /|(  ____ \( \      (  ____ \(  ___  )(       )(  ____ \  \__   __/(  ___  )                                                      
-| )   ( || (    \/| (      | (    \/| (   ) || () () || (    \/     ) (   | (   ) |                                                      
-| | _ | || (__    | |      | |      | |   | || || || || (__         | |   | |   | |                                                      
-| |( )| ||  __)   | |      | |      | |   | || |(_)| ||  __)        | |   | |   | |                                                      
-| || || || (      | |      | |      | |   | || |   | || (           | |   | |   | |                                                      
-| () () || (____/\| (____/\| (____/\| (___) || )   ( || (____/\     | |   | (___) |                                                      
-(_______)(_______/(_______/(_______/(_______)|/     \|(_______/     )_(   (_______)                                                      
- _______  _______ _________ _______  _______    _______  _______  _        _______           _        _______ _________ _______  _______ 
-(  ____ )(  ____ )\__   __/(  ____ \(  ____ \  (  ____ \(  ___  )( \      (  ____ \|\     /|( \      (  ___  )\__   __/(  ___  )(  ____ )
-| (    )|| (    )|   ) (   | (    \/| (    \/  | (    \/| (   ) || (      | (    \/| )   ( || (      | (   ) |   ) (   | (   ) || (    )|
-| (____)|| (____)|   | |   | |      | (__      | |      | (___) || |      | |      | |   | || |      | (___) |   | |   | |   | || (____)|
-|  _____)|     __)   | |   | |      |  __)     | |      |  ___  || |      | |      | |   | || |      |  ___  |   | |   | |   | ||     __)
-| (      | (\ (      | |   | |      | (        | |      | (   ) || |      | |      | |   | || |      | (   ) |   | |   | |   | || (\ (   
-| )      | ) \ \_____) (___| (____/\| (____/\  | (____/\| )   ( || (____/\| (____/\| (___) || (____/\| )   ( |   | |   | (___) || ) \ \__
-|/       |/   \__/\_______/(_______/(_______/  (_______/|/     \|(_______/(_______/(_______)(_______/|/     \|   )_(   (_______)|/   \__/
-                                                                                                                                         
+//          ╦ ╦╔═╗╦  ╔═╗╔═╗╔╦╗╔═╗  ╔╦╗╔═╗
+//          ║║║║╣ ║  ║  ║ ║║║║║╣    ║ ║ ║
+//          ╚╩╝╚═╝╩═╝╚═╝╚═╝╩ ╩╚═╝   ╩ ╚═╝
+//  ╔═╗╦═╗╦╔═╗╔═╗  ╔═╗╔═╗╦  ╔═╗╦ ╦╦  ╔═╗╔╦╗╔═╗╦═╗
+//  ╠═╝╠╦╝║║  ║╣   ║  ╠═╣║  ║  ║ ║║  ╠═╣ ║ ║ ║╠╦╝
+//  ╩  ╩╚═╩╚═╝╚═╝  ╚═╝╩ ╩╩═╝╚═╝╚═╝╩═╝╩ ╩ ╩ ╚═╝╩╚═
+
 """)
     print("""
                 --------MENU--------
@@ -264,25 +251,23 @@ def start():
                     """)
     while True:
         answer = input("Choose an option: \n")
-        
+
         if answer == '1':
             print("Taking you to View sockets stock and price...\n")
             print("ALL PRICES ARE FOR SINGLE PARTS\n")
             socket_type = SOCKETS.col_values(1)
             socket_stock = SOCKETS.col_values(4)
             socket_price = SOCKETS.col_values(2)
-            socket_size = SOCKETS.col_values(3)
-            print(f'{socket_type}\n:{socket_size}\n:{socket_price}\n:{socket_stock}')
+            print(f'{socket_type}\n:{socket_price}\n:{socket_stock}')
             back_to_menu()
             break
         elif answer == '2':
             print("Taking you to View lights stock and price......\n")
             print("ALL PRICES ARE FOR SINGLE PARTS\n")
             lights_type = LIGHTS.col_values(1)
-            lights_wattage = LIGHTS.col_values(2)
             lights_price = LIGHTS.col_values(3)
             lights_stock = LIGHTS.col_values(4)
-            print(f'{lights_type}\n:{lights_wattage}\n:{lights_price}\n:{lights_stock}')
+            print(f'{lights_type}\n:{lights_price}\n:{lights_stock}')
             back_to_menu()
             break
         elif answer == '3':
@@ -297,13 +282,13 @@ def start():
         elif answer == '4':
             print("Taking you to Update sales...\n")
             get_sales_data()
-            back_to_menu()    
+            back_to_menu()
             break
         elif answer == '5':
             print("Taking you to Get quote...\n")
             get_quote()
             back_to_menu()
-            
+
             break
         elif answer == '6':
             print("Exiting...")
@@ -313,10 +298,12 @@ def start():
             print("Not a valid input please enter a number 1-6")
             back_to_menu()
 
+
 def main():
     """
     Function that runs all functions
     """
     start()
+
 
 main()
