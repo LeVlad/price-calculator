@@ -24,7 +24,7 @@ This programe is meant to be a simple tool to find out as soon as possible how m
 ## Language ##
 Python3 - This project is written only with Python as a the programming language.
 
-### Other programmes:###
+### Other programmes: ###
 Google sheets - To get my google sheet document (gspread) to store/modify or delete the user added information
 Gspread - The API to connect my to my programme.
 GitHub - Making my repository and push my commited code.
