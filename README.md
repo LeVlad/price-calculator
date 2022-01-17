@@ -1,5 +1,6 @@
 ## Price Calculator ##
 ### Python Project ##
+![Responsive-price](https://user-images.githubusercontent.com/88729876/149689889-ff1e8aa4-be35-4d07-9f05-17096a2fdc19.jpg)
 
 1. Description
 2. Purpose
@@ -34,7 +35,12 @@ Am I responsive - For the print screen of my deployed programme for this readme.
 Draw.io - For make my flowchart.
 PEP8 - To validate python code
 
-### Deployment ###
+### Validator Testing ###
+
+![PEP8Validator](https://user-images.githubusercontent.com/88729876/149689369-1052871c-cf6e-4be7-8dfd-83f5dca6af96.jpg)
+
+
+### 5. Deployment ###
 To build this program, I have used the Code Institutes template to be able to deploy it on Heroku and to be able to use the program on a web server. Using Gitpod IDE. In order to save my work I always git add, git commit with a message and then git push it to my Github repository.
 
 Project Deployment:
@@ -56,7 +62,10 @@ When Heroku has find your repository select connect to connect the repository to
 Below App connected section, I choose to manual deployments options further down.
 When that is done correctly this will provide me the live link for this programe.
 Then I choose Automatic Deploys button that will automatically rebuild the app everytime you add, commit and push from GitPod.
-Here is the final deployed link:
+
+# Here is the final deployed link: #
+https://price-calculator1388.herokuapp.com/
+
 
 # 6. Resources #
 
