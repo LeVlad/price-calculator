@@ -47,7 +47,7 @@ def get_sales_data():
         print("""
         Please enter most current sales data
         Data should be three numbers, separated by commas and representing
-        the materials used sockets, lights, switches.")
+        the materials used sockets, lights, switches.
         Example: 10,20,30\n"
         """)
 
