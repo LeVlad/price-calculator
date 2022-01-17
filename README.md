@@ -43,29 +43,31 @@ PEP8 - To validate python code
 ### 5. Deployment ###
 To build this program, I have used the Code Institutes template to be able to deploy it on Heroku and to be able to use the program on a web server. Using Gitpod IDE. In order to save my work I always git add, git commit with a message and then git push it to my Github repository.
 
-Project Deployment:
-For deploy this project in Heroku I followed these steps:
+### Project Deployment: ###
 
-Log in to my account at Heroku
-Select "new" and "Create new app" from the dashboard.
-Create a unique name for the project
-Navigate from the deploy tab at the top and select the setting tab.
+To deploy this project in Heroku I followed these steps:
+
+1. Log in to my account at Heroku
+2. Select "new" and "Create new app" from the dashboard.
+3. Create a unique name for the project
+4. Navigate from the deploy tab at the top and select the setting tab.
 Because I use Code Institute template, I need to add a config var for creating this app. (Not necessary if you do not use the template)
-Select Reveal config vars button. In KEY field, input PORT with capital letters. In VALUE field, input 8000 and then select add button.
-Then add buildpacks below the config var section.
-Select Python as yout first bulid pack in buildpacks window and save that.
-Add another buildpack and add node.JS and save. The order of the buildpacks is importent to be Python at the top and node.JS at the bottom.
-Select the deploy tab again and go to the deployment method section.
-Select GitHub - connect to GitHub button and follow the steps to connect to your GitHub account.
-Select your account and enter the name of yout repository and then select search.
-When Heroku has find your repository select connect to connect the repository to the app within Heroku.
-Below App connected section, I choose to manual deployments options further down.
-When that is done correctly this will provide me the live link for this programe.
-Then I choose Automatic Deploys button that will automatically rebuild the app everytime you add, commit and push from GitPod.
+5. Select Reveal config vars button. 
+6. Firstly I had to add the creds.json file that had all the required information to link the app to the worksheet. In KEY I added "CREDS" and in VALUE I added the creds.json content.
+7. A second config is required, the KEY field, needs PORT with capital letters. The VALUE field, input 8000 and then select add button.
+8. Then add buildpacks below the config var section.
+9. Select Python as yout first bulid pack in buildpacks window and save that.
+10. Add another buildpack and add node.JS and save. The order of the buildpacks is importent to be Python at the top and node.JS at the bottom.
+11. Select the deploy tab again and go to the deployment method section.
+12. Select GitHub - connect to GitHub button and follow the steps to connect to your GitHub account.
+13. Select your account and enter the name of yout repository and then select search.
+14. When Heroku has found your repository select connect to connect the repository to the app within Heroku.
+15. Below App connected section, I chose to manually deploy the app.
+16. After the app was build I received the link and enabled automatic deployment so that every time I commit and push to github, the app updates itself automatically.
+
 
 # Here is the final deployed link: #
 https://price-calculator1388.herokuapp.com/
-
 
 # 6. Resources #
 
